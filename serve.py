@@ -2,16 +2,24 @@
 
 import SimpleHTTPServer
 import SocketServer
+import datetime
 
 class Handler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
     def do_GET(self):
 
-        # self.send_head()
+        # Set MIME type
         self.send_response(200)
         self.send_header('Content-Type', 'text/plain')
         self.end_headers()
 
+        # Banner
+        self.wfile.write("MIRROR BROWSER HEADERS - ")
+        d = str(datetime.datetime.now())
+        self.wfile.write(d)
+        self.wfile.write("\n\n")
+
+        # Dump HTTP headers supplied by browser
         for h in self.headers:
             self.wfile.write(h)
             self.wfile.write(" ")
