@@ -6,7 +6,7 @@ docker run --rm --network=host deanturpin/http
 
 Hit the server with your browser: `http://localhost:8080`
 
-And you will be presented with the browser heads included in the `GET` request.
+And you will be presented with the browser headers submitted in the `GET` request.
 
 ```bash
 MIRROR BROWSER HEADERS - 2025-02-24 13:00:42.639989
